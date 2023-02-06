@@ -1,4 +1,7 @@
 <h1 align="center"> Всем привет, Меня зовут Данила
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
-<h3 align="center">Computer science student</h3>
-<
+<h3 align="center"> Начинающий специалист в DevOps методологии</h3>
+#  Если бы этот проект имел коммерческое использование. Я бы создал dockerfile и подключил к docker-compose.yml через директиву BUILD.
+# В dockerfile настроил клонирование git репозитоия. В контейнерах бы прописывал где находятся наши файлы который загружают пользователей 
+# Для дальнейшего развития настроил мониторин, кеширование, ssl сертификаты и настроил бы веб-сервер https.
+# Спасибо за внимание.![image](https://user-images.githubusercontent.com/122745323/216975936-e5873b7c-1264-4296-8d63-4542500c18d9.png)
