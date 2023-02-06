@@ -1,21 +1,4 @@
 services:
-  wp:
-    image: wordpress:5.7.0-php8.0-fpm
-    container_name: wordpress-5.7.0-php8.0-fpm 
-    depends_on:
-      - mysql8
-    restart: unless-stopped
-    env_file: .env
-    environment:
-      - WORDPRESS_DB_HOST=mysql:3306
-      - WORDPRESS_DB_USER=$MYSQL_USER
-      - WORDPRESS_DB_PASSWORD= pressenter
-      - WORDPRESS_DB_NAME=$MYSQL_DATABASE
-    volumes:
-      - www-html:/var/www/html
-    networks:
-      - app
-
   mydb:
     image: mysql:8.0
     container_name: mysql8
@@ -24,6 +7,23 @@ services:
     volumes:
       - dbfile:/var/lib/mysql
     command: '--default-authentication-plugin=mysql_native_password'
+    networks:
+      - app
+
+  wp:
+    image: wordpress:5.7.0-php8.0-fpm
+    container_name: wordpress-5.7.0-php8.0-fpm 
+    depends_on:
+      - mydb
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - WORDPRESS_DB_HOST=mysql:3306
+      - WORDPRESS_DB_USER=$MYSQL_USER
+      - WORDPRESS_DB_PASSWORD=$MYSQL_PASSWORD
+      - WORDPRESS_DB_NAME=$MYSQL_DATABASE
+    volumes:
+      - www-html:/var/www/html
     networks:
       - app
 
